@@ -1,0 +1,46 @@
+/* #headerContainer {
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    display: flex;
+}
+
+#header {
+    box-shadow: 0 0 0 0px rgb(253, 253, 253),
+        0 0 0 0px rgb(245, 248, 248),
+        0 0 0 0px rgb(247, 247, 247),
+        1px 1px 20px 1px rgba(255, 221, 0, 0.623);
+    z-index: 1;
+} */
+
+
+#headerContainer {
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center; /* Center the logo horizontally */
+  }
+  
+  /* Header Section Styles */
+  #header {
+    box-shadow: 0 0 0 0px rgb(253, 253, 253),
+      0 0 0 0px rgb(245, 248, 248),
+      0 0 0 0px rgb(247, 247, 247),
+      1px 1px 20px 1px rgba(255, 221, 0, 0.623);
+    z-index: 1;
+  }
+  
+  /* Logo Styles */
+  .logo {
+    width: 50%; /* Set the width of the logo image */
+    height: auto; /* Maintain the aspect ratio */
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    .logo {
+      width: 150px; /* Decrease the width of the logo for smaller screens */
+    }
+  }
