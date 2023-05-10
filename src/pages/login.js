@@ -68,16 +68,6 @@ const Login = () => {
                 <div id="signup-card">
                     <p>Log in to your <b>Vehicle Genie</b> account.</p>
                     <form id="signupform">   
-                        {/* <span htmlFor="checkUser"> Are You a New User ? </span>
-                        <input 
-                            type="checkbox" 
-                            name="newuser" 
-                            id="checkbx"
-                            value="New"
-                            checked={isNewUser}
-                            onChange={(e) => setIsNewUser(e.target.checked)}
-                        />
-                        <br/> */}
                         <label>User Name</label>
                         <input
                             type="text"

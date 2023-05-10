@@ -1,7 +1,7 @@
 // import { error } from "jquery";
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import {useLocation} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 import '../styles/mainpage.css'
 import Header from "../components/header/header";
@@ -23,9 +23,10 @@ const Main = () =>{
     const [selectioncondition, setSelectionCondition] = useState("");
     const [selectionfuel, setSelectionFuel] = useState("");
     const [selection, setSelection] = useState("");
-    const [clientId, setClientId] = useState("");
+    const [clientId, setClientId] = useState();
 
     const location = useLocation();
+    const navigate = useNavigate();
     
 
 
@@ -35,6 +36,7 @@ const Main = () =>{
 
                 const client_id = new URLSearchParams(location.search).get('clientId');
                 console.log("Client Id: {}", client_id);
+                setClientId(client_id)
 
                 const response = await axios.get("http://127.0.0.1:8085/api/v1/vehicle-genie/vehicle");
                 if(response !== null){
@@ -140,6 +142,15 @@ const Main = () =>{
         textAlign: 'center',
         fontFamily: 'Montserrat, sans-serif'
     }
+
+    async function goToAdd(id) {
+
+        console.log("Go to add..!!");
+        console.log("ClientId: ", clientId);
+        console.log("Vehicle Id: ", id);
+
+        navigate(`/view?clientId=${clientId}&vId=${id}`)
+    }
       
 
     return (
@@ -210,7 +221,7 @@ const Main = () =>{
                             )
                         }else{
                             return (
-                                <div class="RecommendationContainer" key={index}>
+                                <div class="RecommendationContainer" key={vehicle.vehicle_Id} onClick={() => goToAdd(vehicle.vehicle_Id)}>
                                     <div class="recWrapper">
                                         <img src={logo} alt="Vehicle Genie" class="recommondation-log" />
                                         <div class="firstRescommendationWrapper">
@@ -224,7 +235,7 @@ const Main = () =>{
                 </div>
                 <div class="grid-container"> 
                     {filteredVehicales.map((vehicle, index)=> (
-                        <div class="discussion-container" key={index}>
+                        <div class="discussion-container" key={vehicle.vehicle_Id} onClick={() => goToAdd(vehicle.vehicle_Id)}>
                             <div class="addWrapper">
                                 <img src={logo} alt="Vehicle Genie" class="logo" />
                                 <div class="first-wrapper">

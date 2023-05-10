@@ -9,14 +9,6 @@
     border-bottom: 1px solid #ccc;
 }
 
-#topic {
-    margin: 0;
-    padding: 10px;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: start;
-}
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
